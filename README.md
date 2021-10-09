@@ -34,14 +34,14 @@ Restart the kernel if changes to the internal codes attention_model.py, dataload
 <ins>Note:</ins> the code is created for QMNIST and Imagenette data and might require changes if custom data is used.
 
 ## Citation
-@INPROCEEDINGS{9552170,
-  author={Koriakina, Nadezhda and Sladoje, Nataša and Lindblad, Joakim},
-  booktitle={2021 12th International Symposium on Image and Signal Processing and Analysis (ISPA)}, 
-  title={The Effect of Within-Bag Sampling on End-to-End Multiple Instance Learning}, 
-  year={2021},
-  volume={},
-  number={},
-  pages={183-188},
+@INPROCEEDINGS{9552170,<br />
+  author={Koriakina, Nadezhda and Sladoje, Nataša and Lindblad, Joakim},<br />
+  booktitle={2021 12th International Symposium on Image and Signal Processing and Analysis (ISPA)}, <br />
+  title={The Effect of Within-Bag Sampling on End-to-End Multiple Instance Learning}, <br />
+  year={2021},<br />
+  volume={},<br />
+  number={},<br />
+  pages={183-188},<br />
   doi={10.1109/ISPA52656.2021.9552170}}
 
 ## References
