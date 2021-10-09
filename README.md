@@ -1,7 +1,7 @@
 # Attention-Based deep Multiple Instance Learning with within-bag sampling
 <a href="mailto:nadezhda.koriakina@it.uu.se">Nadezhda Koriakina</a>:envelope:, <a href="mailto:natasa.sladoje@it.uu.se">Nataša Sladoje</a> and <a href="mailto:joakim.lindblad@it.uu.se">Joakim Lindblad</a>
 
-Pytorch implementation of Attention-Based deep Multiple Instance Learning (ABMIL) [[1]](#1) with within-bag sampling according to [ISPA 2021](https://www.isispa.org/) paper ["The Effect of Within-Bag Sampling on End-to-End Multiple Instance Learning"][[2]](#2). 
+Pytorch implementation of Attention-Based deep Multiple Instance Learning (ABMIL) [[1]](#1) with within-bag sampling according to [ISPA 2021](https://www.isispa.org/) paper ["The Effect of Within-Bag Sampling on End-to-End Multiple Instance Learning"](https://ieeexplore.ieee.org/document/9552170)[[2]](#2). 
 
 ## Table of Contents
 1. [Overview](#overview)
