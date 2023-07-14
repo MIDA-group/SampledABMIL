@@ -43,10 +43,16 @@ def compute_metrics(subfolder_valid_approach, num_test_bags, weights_folder, roo
         all_pred_sample_labels=[]
         for s in range(num_samples):
             for i in range(len(list_weights_bag)):
-                if list_weights_bag[i][-21:-18]==str(s).zfill(2) or list_weights_bag[i][-20:-18]==str(s).zfill(2): ###
-                    pred_sample_label = list_weights_bag[i][-8:-7] 
-                    all_pred_sample_labels.append(pred_sample_label)                    
-                    break # all instances in sample have the same bag label
+                if s<100 and (not list_weights_bag[i][-21:-20].isnumeric()):
+                    if list_weights_bag[i][-20:-18]==str(s).zfill(2):
+                        pred_sample_label = list_weights_bag[i][-8:-7] ###
+                        all_pred_sample_labels.append(pred_sample_label)
+                        break # all instances in sample have the same bag label
+                elif s>=100:
+                    if list_weights_bag[i][-21:-18]==str(s).zfill(2):
+                        pred_sample_label = list_weights_bag[i][-8:-7] ###
+                        all_pred_sample_labels.append(pred_sample_label)                    
+                        break # all instances in sample have the same bag label
                     
         majority_bag_label_from_all_samples_for_one_bag = np.mean(np.asarray(all_pred_sample_labels).astype(np.int))
         pred_bag_label = 0
@@ -69,11 +75,18 @@ def compute_metrics(subfolder_valid_approach, num_test_bags, weights_folder, roo
         weights_all_samples_for_one_bag=[]; names_all_samples_for_one_bag=[]
         for s in range(num_samples):
             all_inst_weights_in_one_sample=[]; all_inst_names_in_one_sample=[]
-            for i in range(len(list_weights_bag)):           
-                if list_weights_bag[i][-21:-18]==str(s).zfill(2) or list_weights_bag[i][-20:-18]==str(s).zfill(2): ###
-                    coeff = np.load(os.path.join(bag_folder, list_weights_bag[i]))
-                    all_inst_weights_in_one_sample.append(coeff)
-                    all_inst_names_in_one_sample.append(list_weights_bag[i])
+            for i in range(len(list_weights_bag)):       
+                if s<100 and (not list_weights_bag[i][-21:-20].isnumeric()):
+                    if list_weights_bag[i][-20:-18]==str(s).zfill(2):
+                        coeff = np.load(os.path.join(bag_folder, list_weights_bag[i]))
+                        all_inst_weights_in_one_sample.append(coeff)
+                        all_inst_names_in_one_sample.append(list_weights_bag[i])
+                elif s>=100:
+                    if list_weights_bag[i][-21:-18]==str(s).zfill(2):
+                        coeff = np.load(os.path.join(bag_folder, list_weights_bag[i]))
+                        all_inst_weights_in_one_sample.append(coeff)
+                        all_inst_names_in_one_sample.append(list_weights_bag[i])
+
             min_coef = np.min(np.asarray(all_inst_weights_in_one_sample))
             max_coef = np.max(np.asarray(all_inst_weights_in_one_sample))
             norm_coeff = [(coef-min_coef)/(max_coef-min_coef+10e-12) for coef in all_inst_weights_in_one_sample] 
